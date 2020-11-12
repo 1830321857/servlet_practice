@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xmlns="http://java.sun.com/xml/ns/javaee" 
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+         id="WebApp_ID" version="2.5">
+         <!-- 名称需要和项目名一致 -->
+         <display-name>servlet_practice</display-name>
+         
+         <context-param>
+             <param-name>address</param-name>
+             <param-value>上海杨浦</param-value>
+         </context-param>
+         
+         <!-- 向Tomcat注册Servlet servlet-name：Servlet的名称， servlet-class：具体的路径 -->
+         <servlet>
+             <servlet-name>TestServlet</servlet-name>
+             <servlet-class>cn.liuwei.servlet.TestServlet</servlet-class>
+             
+             <load-on-startup>2</load-on-startup>
+         </servlet>
+         
+         <servlet>
+             <servlet-name>HelloServletConfig</servlet-name>
+             <servlet-class>cn.liuwei.servlet.HelloServletConfig</servlet-class>
+             
+             <init-param>
+                 <param-name>name</param-name>
+                 <param-value>Andrew</param-value>
+             </init-param>
+         </servlet>
+         
+         <!-- 注册servlet的映射。 servlet-name：找到上面注册的servlet， url-pattern：地址栏的路径 -->
+         <servlet-mapping>
+             <servlet-name>TestServlet</servlet-name>
+             <url-pattern>/testServlet</url-pattern>
+         </servlet-mapping>
+         
+         <servlet-mapping>
+             <servlet-name>HelloServletConfig</servlet-name>
+             <url-pattern>/HelloServletConfig</url-pattern>
+         </servlet-mapping>
+
+</web-app>
